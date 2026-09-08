@@ -218,38 +218,62 @@
             display: none;
         }
 
-        .pdf-viewer {
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .result-field {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
             box-shadow: 0 2px 12px var(--shadow);
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        .pdf-viewer h3 {
-            color: var(--primary-dark);
+        .result-field:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 4px 16px var(--shadow);
+        }
+
+        .result-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .result-field h3 {
             font-size: 1rem;
-            margin: 0.5rem 0 0.8rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0;
+            flex: 1;
         }
 
-        .pdf-viewer h3:first-child {
-            margin-top: 0;
+        .result-field .arrow {
+            color: var(--primary-light);
+            font-size: 1.1rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+            align-self: center;
         }
 
-        .pdf-viewer h3:not(:first-child) {
-            margin-top: 2rem;
-        }
-
-        .pdf-viewer embed {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            background: #f1efec;
-        }
-
-        .fallback-note {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
+        .result-field:hover .arrow {
+            opacity: 1;
         }
 
         footer {
@@ -375,11 +399,17 @@
 
     <details class="results-toggle">
         <summary class="toggle-button">Ergebnisse aus der Fortbildung zum Weiterdenken</summary>
-        <div class="pdf-viewer">
-            <h3>Chancen, Sorgen und Erkenntnisse</h3>
-            <embed src="Chancen%2C%20Sorgen%20und%20Erkenntnisse.pdf" type="application/pdf" width="100%" height="700px" />
-            <h3>Verdichtung nach der Denkenden Runde</h3>
-            <embed src="Verdichtung%20nach%20der%20Denkenden%20Runde.pdf" type="application/pdf" width="100%" height="700px" />
+        <div class="results-grid">
+            <a class="result-field" href="Chancen%2C%20Sorgen%20und%20Erkenntnisse.pdf" target="_blank">
+                <div class="result-icon">&#128202;</div>
+                <h3>Chancen, Sorgen und Erkenntnisse</h3>
+                <span class="arrow">&#8599;</span>
+            </a>
+            <a class="result-field" href="Verdichtung%20nach%20der%20Denkenden%20Runde.pdf" target="_blank">
+                <div class="result-icon">&#128222;</div>
+                <h3>Ergebnisse aus der denkenden Runde</h3>
+                <span class="arrow">&#8599;</span>
+            </a>
         </div>
     </details>
 
