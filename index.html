@@ -177,6 +177,81 @@
             opacity: 1;
         }
 
+        .results-toggle {
+            margin: 0.5rem 0 2rem;
+        }
+
+        .toggle-button {
+            list-style: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 0.85rem 1.8rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 4px 14px var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 1.2rem;
+        }
+
+        .toggle-button::after {
+            content: '\25BC';
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+        }
+
+        .results-toggle[open] .toggle-button::after {
+            transform: rotate(180deg);
+        }
+
+        .toggle-button:hover {
+            box-shadow: 0 6px 18px var(--shadow);
+            transform: translateY(-1px);
+        }
+
+        .toggle-button::-webkit-details-marker {
+            display: none;
+        }
+
+        .pdf-viewer {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px var(--shadow);
+        }
+
+        .pdf-viewer h3 {
+            color: var(--primary-dark);
+            font-size: 1rem;
+            margin: 0.5rem 0 0.8rem;
+        }
+
+        .pdf-viewer h3:first-child {
+            margin-top: 0;
+        }
+
+        .pdf-viewer h3:not(:first-child) {
+            margin-top: 2rem;
+        }
+
+        .pdf-viewer embed {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #f1efec;
+        }
+
+        .fallback-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
         footer {
             text-align: center;
             padding: 2rem 1.5rem;
@@ -297,6 +372,17 @@
         </a>
 
     </div>
+
+    <details class="results-toggle">
+        <summary class="toggle-button">Ergebnisse aus der Fortbildung zum Weiterdenken</summary>
+        <div class="pdf-viewer">
+            <h3>Chancen, Sorgen und Erkenntnisse</h3>
+            <embed src="Chancen%2C%20Sorgen%20und%20Erkenntnisse.pdf" type="application/pdf" width="100%" height="700px" />
+            <h3>Verdichtung nach der Denkenden Runde</h3>
+            <embed src="Verdichtung%20nach%20der%20Denkenden%20Runde.pdf" type="application/pdf" width="100%" height="700px" />
+        </div>
+    </details>
+
 </main>
 
 <footer>
